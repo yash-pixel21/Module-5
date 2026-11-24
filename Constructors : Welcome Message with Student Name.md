@@ -1,39 +1,45 @@
-# # Constructors in Python: Welcome Message with Student Name
+# Destructor in Python
 
-## 🎯 Aim
-To write a Python program that creates a **Student** class with a **default constructor** and a method to display a welcome message along with the student’s name provided by the user.
+This project demonstrates how to implement a **destructor** in Python using a simple class.
+
+## 🚀 Overview
+
+The program defines a class `Demo` with:
+
+- A **constructor** `__init__` that initializes an instance variable and prints a message.
+- A **destructor** `__del__` that prints a message when the object is destroyed.
 
 ## 🧠 Algorithm
-1. **Get user input**: Accept the student's name from the user.
-2. **Define the class**: Create a class `Student` with a default constructor (`__init__`).
-3. **Default Constructor**: In the constructor, assign the user input (student name) to an instance variable `self.a`.
-4. **Display Message**: Define a method `show` that prints "This is non-parameterized constructor" and a welcome message with the student’s name.
-5. **Execute the Program**: Instantiate the `Student` class and call the `show` method.
 
-## 🧾 Program
-
+1. Define a class named `Demo`.
+2. Inside the class, define the `__init__` method:
+   - Initialize an instance variable `status` with the value `"Alive"`.
+   - Print the value of `status`.
+3. Define the `__del__` method:
+   - Print a message indicating the object is being destroyed.
+4. Outside the class:
+   - Create an instance of the `Demo` class.
+   - Delete the object using the `del` keyword.
+## Program
 ```
 
-name = input()
-
-
-class Student:
+class Demo:
    
     def __init__(self):
-        self.a = name  
-    
-  
-    def show(self):
-        print("This is non-parameterized constructor")
-        print("Hello", self.a)
+        self.status = "Alive"
+        print(self.status)
 
 
-s = Student()   
-s.show()
+    def __del__(self):
+        print("The object no longer exists")
+
+
+obj = Demo()  
+del obj
 ```
 
-## Output
-<img width="1155" height="232" alt="image" src="https://github.com/user-attachments/assets/3b057e4c-8618-467f-9f07-c00ca95bcfe4" />
+## 🧪 Output
+<img width="717" height="147" alt="image" src="https://github.com/user-attachments/assets/af6797a5-f2bc-496f-9465-5f7513f73678" />
 
 ## Result
 Thus , the program has been executed successfully.
