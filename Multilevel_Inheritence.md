@@ -1,61 +1,66 @@
-# Arithmetic Operations Using Multiple Inheritance in Python
+# Multilevel Inheritance Example in Python
 
-This Python program demonstrates **multiple inheritance** by performing basic arithmetic operations — Addition, Subtraction, and Division — using three classes.
+This Python project demonstrates the concept of **Multilevel Inheritance** to collect and display the **name**, **age**, and **location** of a person.
 
 ## 🎯 Aim
 
-To write a Python program to calculate **Add, Sub & Division** using **Multiple Inheritance**.
+To write a Python program that uses multilevel inheritance to get and display a person’s name, age, and location.
 
 ## 🧠 Algorithm
 
-1. **Define `Calculation1` class**
-   - Contains `Summation(a, b)` method to return the sum of two numbers.
-2. **Define `Calculation2` class**
-   - Contains `Subtraction(a, b)` method to return the difference of two numbers.
-3. **Define `Derived` class**
-   - Inherits from both `Calculation1` and `Calculation2`.
-   - Contains `Division(a, b)` method to return the division result.
-4. **Input**
-   - Prompt the user to enter two numbers.
-5. **Process**
-   - Create an object of the `Derived` class.
-   - Call `Summation`, `Subtraction`, and `Division` methods.
-6. **Output**
-   - Display the results of the three operations.
+1. **Parent Class**  
+   - `__init__(name)` initializes the `name` attribute.  
+   - `getName()` returns the `name`.
 
-## 💻 Program 
+2. **Child Class (inherits Parent)**  
+   - `__init__(name, age)` initializes `name` using `super()` and adds `age`.  
+   - `getAge()` returns the `age`.
+
+3. **Grandchild Class (inherits Child)**  
+   - `__init__(name, age, location)` initializes `name` and `age` using `super()` and adds `location`.  
+   - `getLocation()` returns the `location`.
+
+4. **Input & Output**  
+   - Take user input for name, age, and location.  
+   - Create an instance of `Grandchild`.  
+   - Print all details using class methods.
+
+## Program
 
 ```python
-class Calculation1:
-    def Summation(self, a, b):
-        return a + b
+class Parent:
+   def __init__(self,name):
+     self.name = name
+   def getName(self):
+     return self.name
 
-class Calculation2:
-    def Subtraction(self, a, b):
-        return a - b
+class Child(Parent):
+   def __init__(self,name,age):
+     Parent.__init__(self,name)
+     self.age = age
+   def getAge(self):
+     return self.age
 
-class Derived(Calculation1, Calculation2):
-    def Division(self, a, b):
-        if b != 0:
-            return a / b
-        else:
-            return "Error: Division by zero"
+class Grandchild(Child):
+   def __init__(self,name,age,location):
+     Child.__init__(self,name,age)
+     self.location=location
+   def getLocation(self):
+     return self.location
 
-a = int(input())
-b = int(input())
-obj = Derived()
-
-print(obj.Summation(a, b))
-print(obj.Subtraction(a, b))
-print(obj.Division(a, b))
-
-
+name=input()
+age=int(input())
+loc=input()
+gc = Grandchild(name,age,loc)
+print(gc.getName(), gc.getAge(), gc.getLocation())
 ```
-## Output Example
 
-![image](https://github.com/user-attachments/assets/b75ce811-4818-4963-b103-e1d19a9e9e94)
+
+## Sample Output
+
+![image](https://github.com/user-attachments/assets/75d3d7dc-88df-4dca-92c3-6092d3fb72ed)
 
 ## Result
 
-Thus the program demonstrates **multiple inheritance** by performing basic arithmetic operations — Addition, Subtraction, and Division — using three classes has been executed successfully.
+Thus the program that uses multilevel inheritance to get and display a person’s name, age, and location executed successfully.
 
